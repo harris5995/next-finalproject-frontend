@@ -5,9 +5,10 @@
 
 <style>
   main {
-    padding-top: 3rem; /* Increase this value as needed */
+    padding-top: 7rem; /* Increase this value as needed */
   }
 </style>
   
   <Header/>
+  <main/>
   <slot />
