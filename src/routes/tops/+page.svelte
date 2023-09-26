@@ -1,16 +1,26 @@
     <script>
       import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public'
       import { getTokenFromLocalStorage } from '../../lib/auth.js';
+      import { goto } from '$app/navigation';
       export let data;
     
       
       export function selectTop(tops) {
         sessionStorage.clear
-sessionStorage.setItem("tops", tops)
-console.log(tops)
+        sessionStorage.setItem("tops", tops)
+        console.log(tops)
       }
 
       // const top = sessionStorage.getItem()
+
+      // Modify the selectTop function to store the selected top in session storage
+  // export function selectTop(tops) {
+  // Store the selected top in session storage
+    // sessionStorage.setItem("selectedTop", JSON.stringify(tops));
+
+  // Navigate to the new page
+    // goto('/outfit');
+// }
 
 
   </script>

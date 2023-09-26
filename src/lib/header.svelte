@@ -19,6 +19,9 @@
 
     <div class="flex space-x-4 items-center">
       {#if $LoggedIn == true}
+      <a href="/outfit" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        My Outfit
+      </a>
         <a href="/images/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
           Create New Listing
         </a>

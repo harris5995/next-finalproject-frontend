@@ -4,7 +4,7 @@
       "http://127.0.0.1:5173/tops",
       "http://127.0.0.1:5173/bottoms",
       "http://127.0.0.1:5173/shoes",
-      "http://127.0.0.1:5173/accessories"
+      "http://127.0.0.1:5173/accs"
     ];
   </script>
   
@@ -33,6 +33,10 @@
 
 
 <h1 class=justify-center>My Closet</h1>
+
+<a href="/outfit" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+  My Outfit
+</a>
   
   <div class="container">
     <div class="grid">
