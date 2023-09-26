@@ -2,9 +2,9 @@
     let texts = ["tops", "bottoms", "shoes", "accessories"];
     let links = [
       "http://127.0.0.1:5173/tops",
-      "https://example.com/bottoms",
-      "https://example.com/shoes",
-      "https://example.com/accessories"
+      "http://127.0.0.1:5173/bottoms",
+      "http://127.0.0.1:5173/shoes",
+      "http://127.0.0.1:5173/accessories"
     ];
   </script>
   
