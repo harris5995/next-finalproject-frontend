@@ -5,7 +5,8 @@
 	import { onMount } from 'svelte';
       export let data;
     
-    function filterTopsByUser () {
+      
+  function filterTopsByUser () {
       const userId = getUserId();
       data.tops = data.tops.filter((top) => top.user_id === userId);
     }
@@ -17,19 +18,37 @@ onMount(filterTopsByUser);
         console.log(tops)
       }
 
-      // const top = sessionStorage.getItem()
+      let filtering = false;
 
-      // Modify the selectTop function to store the selected top in session storage
-  // export function selectTop(tops) {
-  // Store the selected top in session storage
-    // sessionStorage.setItem("selectedTop", JSON.stringify(tops));
+// Define a variable to store the filtered tops
+let filteredTops = [];
 
-  // Navigate to the new page
-    // goto('/outfit');
-// }
+// Define a variable to keep track of the selected color
+let selectedColor = '';
 
 
-  </script>
+
+// Function to filter tops by color
+function filterByColor() {
+  if (selectedColor === '') {
+    // If no color is selected, reset the filter to show all tops
+    filtering = false;
+    filteredTops = [];
+  } else {
+    // If a color is selected, filter the tops by that color
+    filtering = true;
+    filteredTops = data.tops.filter(tops => tops.color === selectedColor);
+  }
+}
+</script>
+
+<select bind:value={selectedColor}>
+  <option value="">All Colors</option>
+  <option value="white">White</option>
+  <option value="black">Black</option>
+  <option value="blue">Blue</option>
+  <!-- Add more color options as needed -->
+</select>
 
 
 
@@ -38,11 +57,12 @@ onMount(filterTopsByUser);
       Upload New Top
     </a>
 
+    <button class="btn" on:click={filterByColor}>Apply Filter</button>
 
-<div id="tops-list" class="flex flex-wrap">
-  
-  {#each data.tops as tops}
-      <div class="border border-gray-300 p-4 m-4 text-center flex-shrink-0">
+
+    <div id="tops-list" class="flex flex-wrap">
+      {#each (filtering ? filteredTops : data.tops) as tops}
+        <div class="border border-gray-300 p-4 m-4 text-center flex-shrink-0">
         <button class="btn" on:click={() => selectTop(tops.name)}>Select</button>
           <a class="font-bold text-2xl" href="/tops/{tops.id}">{tops.name}</a>
           <img class="max-w-xs max-h-xs mx-auto mb-2" src={tops.url} alt={tops.url} />
