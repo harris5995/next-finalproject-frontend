@@ -1,10 +1,16 @@
     <script>
       import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public'
-      import { getTokenFromLocalStorage } from '../../lib/auth.js';
+      import { getTokenFromLocalStorage, getUserId } from '../../lib/auth.js';
       import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
       export let data;
     
-      
+    function filterTopsByUser () {
+      const userId = getUserId();
+      data.tops = data.tops.filter((top) => top.user_id === userId);
+    }
+onMount(filterTopsByUser);
+
       export function selectTop(tops) {
         sessionStorage.clear
         sessionStorage.setItem("tops", tops)
