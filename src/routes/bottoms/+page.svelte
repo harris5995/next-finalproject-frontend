@@ -1,8 +1,13 @@
 <script>
   import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public'
-  import { getTokenFromLocalStorage } from '../../lib/auth.js';
+  import { getTokenFromLocalStorage, getUserId } from '../../lib/auth.js';
   export let data;
 
+  function filterBottomsByUser () {
+      const userId = getUserId();
+      data.bottoms = data.bottoms.filter((bottom) => bottom.user_id === userId);
+    }
+onMount(filterBottomsByUser);
   
   export function selectBottoms(bottoms) {
     sessionStorage.clear
