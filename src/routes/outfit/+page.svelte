@@ -17,11 +17,24 @@ console.log(data)
 
 // console.log(data.bottoms[0].name)
 
+  function clearSessionStorage() {
+    sessionStorage.removeItem("selectedTops");
+    sessionStorage.removeItem("selectedBottoms");
+    sessionStorage.removeItem("selectedShoes");
+    sessionStorage.removeItem("selectedAccs");
+    sessionStorage.clear();
+    location.reload(true);
+  }
+
   </script>
   
   <h1 class="text-2xl font-bold mb-4">Selected Outfit</h1>
 
-  {#if filteredTops.length > 0}
+<button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+on:click={clearSessionStorage}>Clear Selection</button>
+
+{#if filteredTops.length > 0 || filteredBottoms.length > 0 || filteredShoes.length > 0 || filteredAccs.length > 0}
+
   <div class="grid grid-cols-2 gap-4">
     {#each filteredTops as tops}
     <div class="border border-gray-300 p-4 text-center">
@@ -51,6 +64,7 @@ console.log(data)
     </div>
     {/each}
   </div>
+
   {:else}
-  <p>No selected top found.</p>
+  <p>No clothing item selected.</p>
   {/if}
