@@ -31,18 +31,14 @@
   }
 
   :root {
-    --square-width: 300px;
-    --square-height: 300px;
+    --square-width: 200px;
+    --square-height: 200px;
   }
 </style>
 
 <h1 class="text-center">My Closet</h1>
 
-<div class="text-center">
-  <a href="/outfit" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
-    My Outfit
-  </a>
-</div>
+
 
 <div class="container">
   <div class="grid">

@@ -23,7 +23,7 @@ console.log(shoes)
   </a>
 
 
-<div id="shoes-list" class="flex flex-wrap">
+<div id="shoes-list" class="flex flex-wrap justify-center">
 
 {#each data.shoes as shoes}
     <div class="border border-gray-300 p-4 m-4 text-center flex-shrink-0">

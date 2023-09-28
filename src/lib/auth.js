@@ -12,11 +12,19 @@ const emptyAuth = {
 }
 
 export function logOut() {
+
+  localStorage.removeItem('auth');
+
+ 
   localStorage.setItem("auth", JSON.stringify(emptyAuth));
-  LoggedIn.set(false)
-  goto('/')
-  return true
+  LoggedIn.set(false);
+  
+
+  goto('/');
+
+  return true;
 }
+
 
 export function getUserId() {
   const auth = localStorage.getItem("auth")
@@ -34,30 +42,30 @@ export function getTokenFromLocalStorage() {
   return null
 }
 
-// export async function isLoggedIn() {
-//   if (!getTokenFromLocalStorage()) {
-//     return false
-//   }
+export async function isLoggedIn() {
+  if (!getTokenFromLocalStorage()) {
+    return false
+  }
 
-//   try {
-//     const res = await resp.json()
-//     if (resp.status == 200) {
+  try {
+    const res = await resp.json()
+    if (resp.status == 200) {
 
-//       localStorage.setItem("auth", JSON.stringify({
-//         "token": res.token,
-//         "userId": res.record.id
-//       }));
+      localStorage.setItem("auth", JSON.stringify({
+        "token": res.token,
+        "userId": res.record.id
+      }));
 
-//       LoggedIn.set(true)
+      LoggedIn.set(true)
 
-//       return true
-//     }
+      return true
+    }
 
-//     return false
-//   } catch {
-//     return false
-//   }
-// }
+    return false
+  } catch {
+    return false
+  }
+}
 
 export async function authenticateUser(email, password) {
   const resp = await fetch(
