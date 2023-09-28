@@ -57,6 +57,7 @@
 
 <div class="flex justify-center items-center mt-8">
     <form on:submit={uploadImages} class="w-1/3">
+        
         <div class="form-control w-full">
             <label class="label" for="name">
                 <span class="label-text">Name</span>

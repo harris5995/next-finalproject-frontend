@@ -19,12 +19,13 @@
 
     <div class="flex space-x-4 items-center">
       {#if $LoggedIn == true}
-      <a href="/outfit" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
-        My Outfit
+      <a href="/" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        Closet
       </a>
-        <a href="/images/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
-          Create New Listing
-        </a>
+      <a href="/outfit" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        Outfit
+      </a>
+
         <button on:click={logOut} class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
           Log Out
         </button>
