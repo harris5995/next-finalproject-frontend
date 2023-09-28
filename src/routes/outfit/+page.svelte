@@ -13,17 +13,15 @@ const filteredBottoms = data.bottoms.filter(item => item.name === selectedBottom
 const filteredShoes = data.shoes.filter(item => item.name === selectedShoes);
 const filteredAccs = data.accs.filter(item => item.name === selectedAccs);
 
+// const getTopsID = filteredTops[0].id
+// const getBottomsID = filteredBottoms[0].id
+// const getShoesID = filteredShoes[0].id
+// const getAccsID = filteredAccs[0].id
 
-
-const getTopsID = filteredTops[0].id
-const getBottomsID = filteredBottoms[0].id
-const getShoesID = filteredShoes[0].id
-const getAccsID = filteredAccs[0].id
-
- console.log(getTopsID)
- console.log(getBottomsID)
- console.log(getShoesID)
-console.log(getAccsID)
+// console.log(getTopsID)
+//  console.log(getBottomsID)
+//  console.log(getShoesID)
+// console.log(getAccsID)
 
 // console.log("tops id " +filteredTops[0].id)
 
@@ -36,60 +34,63 @@ function clearSessionStorage() {
     location.reload(true);
   }
 
-function storeDataInSessionStorage(tops, bottoms, shoes, accs) {
-  // Store the values in session storage
-  sessionStorage.setItem("tops", tops);
-  sessionStorage.setItem("bottoms", bottoms);
-  sessionStorage.setItem("shoes", shoes);
-  sessionStorage.setItem("accs", accs);
-}
+
 
 let selectedDate = ""; // Initialize the selectedDate variable
 
 // Function to handle date selection
-function handleDateChange(event) {
-  selectedDate = event.target.value;
+function handleDateChange(evt) {
+  selectedDate = evt.target.value;
 }
 
-export async function saveOutfit(evt) {
-  const accessToken = getTokenFromLocalStorage()
-  const outfitData = {
-    tops_id: getTopsID,
-    bottoms_id: getBottomsID,
-    shoes_id: getShoesID,
-    accs_id: getAccsID,
-    date: evt.target['date'].value,
-  };
+// export async function saveOutfit(evt) {
+//   const accessToken = getTokenFromLocalStorage()
+//   const outfitData = {
+//     tops_id: getTopsID,
+//     bottoms_id: getBottomsID,
+//     shoes_id: getShoesID,
+//     accs_id: getAccsID,
+//     date: evt.target['date'].value,
+//   };
 
-  const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${accessToken}`
-        },
-        body: JSON.stringify(outfitData)
-      });
+//   const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
+//         method: 'POST',
+//         mode: 'cors',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           Authorization: `Bearer ${accessToken}`
+//         },
+//         body: JSON.stringify(outfitData)
+//       });
 
-      if (resp.status == 200) {
+//       if (resp.status == 200) {
       
-      } else {
-      const res = await resp.json();
-      if (res.error)
-      console.log(res.error)
-      formErrors = res.error;
-    }
-}
+//       } else {
+//       const res = await resp.json();
+//       if (res.error)
+//       console.log(res.error)
+//       formErrors = res.error;
+//     }
+// }
 
   </script>
   
   <h1 class="text-2xl font-bold mb-4">Selected Outfit</h1>
 
-<button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-on:click={clearSessionStorage}>Clear Selection</button>
+  <div class="flex items-center justify-center space-x-4">
+    <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" on:click={clearSessionStorage}>Clear Selection</button>
+  
+    <div class="relative max-w-sm">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+        </svg>
+      </div>
+      <input datepicker type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date" id="datePicker" bind:value={selectedDate} on:change={handleDateChange}>
+    </div>
+  </div>
 
-<button class="bg-blue-500 btn hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-on:click={storeDataInSessionStorage}>Save Outfit</button>
+
 
 {#if filteredTops.length > 0 || filteredBottoms.length > 0 || filteredShoes.length > 0 || filteredAccs.length > 0}
 
@@ -127,13 +128,3 @@ on:click={storeDataInSessionStorage}>Save Outfit</button>
   <p>No clothing item selected.</p>
   {/if}
 
-  <div>
-    <label for="datePicker">Select a date:</label>
-    <input
-      type="date"
-      id="datePicker"
-      bind:value={selectedDate}
-      on:change={handleDateChange}
-    />
-    <p>Selected Date: {selectedDate}</p>
-  </div>

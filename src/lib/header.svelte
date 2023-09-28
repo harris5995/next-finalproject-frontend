@@ -1,9 +1,9 @@
-<!-- File creates navbar for website -->
-
 <script>
     import { LoggedIn } from "./auth.js";
     import { logOut } from "./auth.js";
-    // import Theme from "./Theme.svelte";
+
+  const accessToken = localStorage.getItem("auth.accessToken");
+  LoggedIn.set(!!accessToken);
   
 </script> 
 
@@ -29,7 +29,7 @@
         <button on:click={logOut} class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
           Log Out
         </button>
-        <!-- <Theme/> -->
+ 
       {:else}
         <a href="/users/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
           Register
@@ -37,7 +37,7 @@
         <a href="/login" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
           Log In
         </a>
-        <!-- <Theme/> -->
+
       {/if}
     </div>
    
