@@ -23,7 +23,7 @@
     display: grid;
     grid-template-columns: repeat(2, var(--square-width));
     grid-template-rows: repeat(2, var(--square-height));
-    gap: 10px;
+    gap: 20px;
     justify-content: flex-end;
   }
 
@@ -34,7 +34,7 @@
     border: 1px solid #ccc;
     color: #e2d3d3;
     background-color: #556B2F;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
     text-transform: uppercase;
     transition: background-color 0.3s, transform 0.2s;
@@ -46,8 +46,8 @@
     }
 
   :root {
-    --square-width: 200px;
-    --square-height: 200px;
+    --square-width: 300px;
+    --square-height: 300px;
   }
 
   .text-center h1 {
