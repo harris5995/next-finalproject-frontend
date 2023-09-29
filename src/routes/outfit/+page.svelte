@@ -1,6 +1,6 @@
 <script>
 import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
-import { getTokenFromLocalStorage } from '../../lib/auth.js';
+import { getTokenFromLocalStorage, getUserId } from '../../lib/auth.js';
 export let data;
 
 const selectedTops = sessionStorage.getItem("tops");
@@ -13,10 +13,11 @@ const filteredBottoms = data.bottoms.filter(item => item.name === selectedBottom
 const filteredShoes = data.shoes.filter(item => item.name === selectedShoes);
 const filteredAccs = data.accs.filter(item => item.name === selectedAccs);
 
-const getTopsID = filteredTops[0].id
-const getBottomsID = filteredBottoms[0].id
-const getShoesID = filteredShoes[0].id
-const getAccsID = filteredAccs[0].id
+const getTopsID = filteredTops[0]
+const getBottomsID = filteredBottoms[0]
+const getShoesID = filteredShoes[0]
+const getAccsID = filteredAccs[0]
+
 
 console.log(getTopsID)
  console.log(getBottomsID)
@@ -44,26 +45,27 @@ function handleDateChange(evt) {
 }
 
 export async function saveOutfit(evt) {
-  const accessToken = getTokenFromLocalStorage()
+  const accessToken = getTokenFromLocalStorage();
   const outfitData = {
-    tops_id: getTopsID,
-    bottoms_id: getBottomsID,
-    shoes_id: getShoesID,
-    accs_id: getAccsID,
+    user_id: getUserId(), // Ensure this function is correct
+    tops: getTopsID,
+    bottoms: getBottomsID,
+    shoes: getShoesID,
+    accs: getAccsID,
     date: selectedDate,
   };
 
-  console.log(outfitData)
+  console.log('Outfit Data:', outfitData); // Log the data
 
   const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${accessToken}`
-        },
-        body: JSON.stringify(outfitData)
-      });
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(outfitData),
+  });
 
       if (resp.status == 200) {
       
