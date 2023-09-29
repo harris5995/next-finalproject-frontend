@@ -46,8 +46,8 @@
     }
 
   :root {
-    --square-width: 300px;
-    --square-height: 300px;
+    --square-width: 200px;
+    --square-height: 200px;
   }
 
   .text-center h1 {
@@ -74,9 +74,11 @@
 
 </style>
 
+
 <div class="text-center">
   <h1 style="text-decoration: none; font-size: 30px; font-weight: bold; color: #B7410E; text-transform: uppercase; margin: 15px 0 0 0 ; padding: 10px 20px; border-radius: 5px;">My Closet</h1>
 </div>
+
 
 <div class="container">
   <div class="grid">
