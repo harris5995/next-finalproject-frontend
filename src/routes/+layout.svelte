@@ -3,8 +3,8 @@
     import Header from "../lib/header.svelte";
     import { LoggedIn } from "../lib/auth.js"
 
-    const accessToken = localStorage.getItem("auth.accessToken");
-  LoggedIn.set(!!accessToken);
+  //   const accessToken = localStorage.getItem("auth.accessToken");
+  // LoggedIn.set(!!accessToken);
   
   </script>
 

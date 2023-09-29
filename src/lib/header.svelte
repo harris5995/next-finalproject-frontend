@@ -1,9 +1,9 @@
 <script>
-    import { LoggedIn } from "./auth.js";
+    import { LoggedIn, isLoggedIn } from "./auth.js";
     import { logOut } from "./auth.js";
 
-  const accessToken = localStorage.getItem("auth.accessToken");
-  LoggedIn.set(!!accessToken);
+  // const accessToken = localStorage.getItem("auth.accessToken");
+  // LoggedIn.set(!!accessToken);
   
 </script> 
 
@@ -18,7 +18,7 @@
   <div class="flex items-center space-x-4">
 
     <div class="flex space-x-4 items-center">
-      {#if $LoggedIn == true}
+      {#if $LoggedIn}
       <a href="/" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
         Closet
       </a>
@@ -39,7 +39,15 @@
         </a>
 
       {/if}
+      <!-- {#if $LoggedIn}
+      <button class="btn mr-6 btn-primary hover:btn-accent" on:click={logOut}>Log Out</button>
+  {:else}
+      <a href="/login" class="btn mr-6 btn-primary hover:btn-accent">Log In</a>
+  {/if} -->
     </div>
+
+    
+  
    
 </nav>
 

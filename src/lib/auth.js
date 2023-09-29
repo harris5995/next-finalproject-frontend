@@ -44,28 +44,14 @@ export function getTokenFromLocalStorage() {
 
 export async function isLoggedIn() {
   if (!getTokenFromLocalStorage()) {
-    return false
+    LoggedIn.set(false);
   }
-
-  try {
-    const res = await resp.json()
-    if (resp.status == 200) {
-
-      localStorage.setItem("auth", JSON.stringify({
-        "token": res.token,
-        "userId": res.record.id
-      }));
-
-      LoggedIn.set(true)
-
-      return true
-    }
-
-    return false
-  } catch {
-    return false
+else {
+    LoggedIn.set(true);
   }
 }
+
+
 
 export async function authenticateUser(email, password) {
   const resp = await fetch(

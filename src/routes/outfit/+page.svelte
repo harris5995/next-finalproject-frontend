@@ -13,15 +13,15 @@ const filteredBottoms = data.bottoms.filter(item => item.name === selectedBottom
 const filteredShoes = data.shoes.filter(item => item.name === selectedShoes);
 const filteredAccs = data.accs.filter(item => item.name === selectedAccs);
 
-// const getTopsID = filteredTops[0].id
-// const getBottomsID = filteredBottoms[0].id
-// const getShoesID = filteredShoes[0].id
-// const getAccsID = filteredAccs[0].id
+const getTopsID = filteredTops[0].id
+const getBottomsID = filteredBottoms[0].id
+const getShoesID = filteredShoes[0].id
+const getAccsID = filteredAccs[0].id
 
-// console.log(getTopsID)
-//  console.log(getBottomsID)
-//  console.log(getShoesID)
-// console.log(getAccsID)
+console.log(getTopsID)
+ console.log(getBottomsID)
+ console.log(getShoesID)
+console.log(getAccsID)
 
 // console.log("tops id " +filteredTops[0].id)
 
@@ -43,39 +43,44 @@ function handleDateChange(evt) {
   selectedDate = evt.target.value;
 }
 
-// export async function saveOutfit(evt) {
-//   const accessToken = getTokenFromLocalStorage()
-//   const outfitData = {
-//     tops_id: getTopsID,
-//     bottoms_id: getBottomsID,
-//     shoes_id: getShoesID,
-//     accs_id: getAccsID,
-//     date: evt.target['date'].value,
-//   };
+export async function saveOutfit(evt) {
+  const accessToken = getTokenFromLocalStorage()
+  const outfitData = {
+    tops_id: getTopsID,
+    bottoms_id: getBottomsID,
+    shoes_id: getShoesID,
+    accs_id: getAccsID,
+    date: selectedDate,
+  };
 
-//   const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
-//         method: 'POST',
-//         mode: 'cors',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           Authorization: `Bearer ${accessToken}`
-//         },
-//         body: JSON.stringify(outfitData)
-//       });
+  console.log(outfitData)
 
-//       if (resp.status == 200) {
+  const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(outfitData)
+      });
+
+      if (resp.status == 200) {
       
-//       } else {
-//       const res = await resp.json();
-//       if (res.error)
-//       console.log(res.error)
-//       formErrors = res.error;
-//     }
-// }
+      } else {
+      const res = await resp.json();
+      if (res.error)
+      console.log(res.error)
+      formErrors = res.error;
+    }
+}
 
   </script>
   
   <h1 class="text-2xl font-bold mb-4">Selected Outfit</h1>
+
+  <button class="bg-blue-500 btn hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+on:click={saveOutfit}>Save Outfit</button>
 
   <div class="flex items-center justify-center space-x-4">
     <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" on:click={clearSessionStorage}>Clear Selection</button>
