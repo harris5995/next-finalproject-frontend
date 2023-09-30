@@ -1,9 +1,13 @@
 <script>
     import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public'
-    import { getTokenFromLocalStorage } from '../../lib/auth.js';
+    import { getTokenFromLocalStorage,getUserId } from '../../lib/auth.js';
     export let data;
   
-    
+    function filterShoesByUser () {
+      const userId = getUserId();
+      data.shoes = data.shoes.filter((shoe) => shoe.user_id === userId);
+    }
+onMount(filterShoesByUser);  
     export function selectTop(shoes) {
       sessionStorage.clear
 sessionStorage.setItem("shoes", shoes)

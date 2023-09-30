@@ -1,10 +1,14 @@
 <script>
     import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public'
-    import { getTokenFromLocalStorage } from '../../lib/auth.js';
+    import { getTokenFromLocalStorage, getUserId } from '../../lib/auth.js';
     import { goto } from '$app/navigation';
     export let data;
   
-    
+    function filterAccsByUser () {
+      const userId = getUserId();
+      data.accs = data.accs.filter((acc) => acc.user_id === userId);
+    }
+onMount(filterAccsByUser);
     export function selectAccs(accs) {
       sessionStorage.clear
       sessionStorage.setItem("accs", accs)
