@@ -1,10 +1,8 @@
-<!-- File creates navbar for website -->
-
 <script>
-  import { LoggedIn } from "./auth.js";
-  import { logOut } from "./auth.js";
-  // import Theme from "./Theme.svelte";
 
+    import { LoggedIn, isLoggedIn } from "./auth.js";
+    import { logOut } from "./auth.js";
+  
 </script> 
 
 
@@ -18,30 +16,38 @@
 
 <div class="flex items-center space-x-4">
 
-  <div class="flex space-x-4 items-center">
-    {#if $LoggedIn == true}
-    <a href="/outfit" class="text-black border border-white px-2 py-1 rounded-full text-sm btn">
-      My Outfit
-    </a>
-      <a href="/images/new" class="text-black border border-white px-2 py-1 rounded-full text-sm btn">
-        Create New Listing
+    <div class="flex space-x-4 items-center">
+      {#if $LoggedIn}
+      <a href="/" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        Closet
       </a>
-      <button on:click={logOut} class="text-black border border-white px- py-1 rounded-full text-sm btn">
-        Log Out
-      </button>
-      
-      <!-- <Theme/> -->
-    {:else}
-      <a href="/users/new" class="text-black border border-white px-3 py-1 rounded-full text-sm btn">
-        Sign Up
+      <a href="/outfit" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        Outfit
       </a>
-      <a href="/login" class="text-black border border-white px-3 py-1 rounded-full text-sm btn">
-        Log In
-      </a>
-      <!-- <Theme/> -->
-    {/if}
-  </div>
+
+        <button on:click={logOut} class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+          Log Out
+        </button>
  
+      {:else}
+        <a href="/users/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+          Register
+        </a>
+        <a href="/login" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+          Log In
+        </a>
+
+      {/if}
+      <!-- {#if $LoggedIn}
+      <button class="btn mr-6 btn-primary hover:btn-accent" on:click={logOut}>Log Out</button>
+  {:else}
+      <a href="/login" class="btn mr-6 btn-primary hover:btn-accent">Log In</a>
+  {/if} -->
+    </div>
+
+    
+  
+   
 </nav>
 
 <style>

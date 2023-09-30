@@ -19,7 +19,7 @@
 </a>
 
 
-<div id="bottoms-list" class="flex flex-wrap">
+<div id="bottoms-list" class="flex flex-wrap justify-center">
 
 {#each data.bottoms as bottoms}
   <div class="border border-gray-300 p-4 m-4 text-center flex-shrink-0">

@@ -1,7 +1,10 @@
 <script>
     import "../app.css";
     import Header from "../lib/header.svelte";
-    let loggedIn = false; // logic for determining if user is logged in.
+
+    import { LoggedIn } from "../lib/auth.js"
+
+
   </script>
 
 <style>
