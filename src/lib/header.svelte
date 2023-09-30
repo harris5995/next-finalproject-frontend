@@ -1,21 +1,20 @@
 <script>
+
     import { LoggedIn, isLoggedIn } from "./auth.js";
     import { logOut } from "./auth.js";
-
-  // const accessToken = localStorage.getItem("auth.accessToken");
-  // LoggedIn.set(!!accessToken);
   
 </script> 
 
-<nav class="bg-gray-900 text-white p-4 flex justify-between items-center">
 
-  <a href="/" class=" text-3xl rounded-full px-4 py-2 font-semibold btn-accent">
-    Outfit Catalog
-  </a>
-  
-  <div class="flex-1"></div>
+<nav class="bg-black text-white p-4 flex justify-between items-center"> 
 
-  <div class="flex items-center space-x-4">
+<a href="/" class="text-4xl bg-black text-white p-4 flex justify-between items-center">
+  Style Vault
+</a> 
+
+<div class="flex-1"></div>
+
+<div class="flex items-center space-x-4">
 
     <div class="flex space-x-4 items-center">
       {#if $LoggedIn}
@@ -52,9 +51,9 @@
 </nav>
 
 <style>
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 </style>

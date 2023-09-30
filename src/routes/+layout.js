@@ -5,3 +5,4 @@ import { LoggedIn, isLoggedIn } from "../lib/auth.js";
 export async function load() {
     await isLoggedIn();
 }
+
