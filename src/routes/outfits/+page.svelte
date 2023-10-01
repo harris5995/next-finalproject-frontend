@@ -46,8 +46,15 @@ function handleDateChange(evt) {
 
 export async function saveOutfit(evt) {
   const accessToken = getTokenFromLocalStorage();
+
+  // Check if a date is selected
+  if (!selectedDate) {
+    alert('Please select a date before saving the outfit.');
+    return; // Exit the function if the date is not selected
+  }
+
   const outfitData = {
-    user_id: getUserId(), // Ensure this function is correct
+    user_id: getUserId(),
     tops: getTopsID,
     bottoms: getBottomsID,
     shoes: getShoesID,
@@ -55,27 +62,64 @@ export async function saveOutfit(evt) {
     date: selectedDate,
   };
 
-  console.log('Outfit Data:', outfitData); // Log the data
+  console.log('Outfit Data:', outfitData);
 
-  const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${accessToken}`,
-    },
-    body: JSON.stringify(outfitData),
-  });
+  try {
+    const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify(outfitData),
+    });
 
-      if (resp.status == 200) {
-      
-      } else {
+    if (resp.status === 200) {
+      // Handle success if needed
+    } else {
       const res = await resp.json();
-      if (res.error)
-      console.log(res.error)
-      formErrors = res.error;
+      if (res.error) {
+        console.log(res.error);
+      }
     }
+  } catch (error) {
+    console.error('Error saving outfit:', error);
+  }
 }
+
+// export async function saveOutfit(evt) {
+//   const accessToken = getTokenFromLocalStorage();
+//   const outfitData = {
+//     user_id: getUserId(), // Ensure this function is correct
+//     tops: getTopsID,
+//     bottoms: getBottomsID,
+//     shoes: getShoesID,
+//     accs: getAccsID,
+//     date: selectedDate,
+//   };
+
+//   console.log('Outfit Data:', outfitData); // Log the data
+
+//   const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
+//     method: 'POST',
+//     mode: 'cors',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Authorization: `Bearer ${accessToken}`,
+//     },
+//     body: JSON.stringify(outfitData),
+//   });
+
+//       if (resp.status == 200) {
+      
+//       } else {
+//       const res = await resp.json();
+//       if (res.error)
+//       console.log(res.error)
+//       formErrors = res.error;
+//     }
+// }
 
   </script>
   

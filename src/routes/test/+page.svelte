@@ -1,4 +1,8 @@
 <script>
+import Calendar from "../../lib/calendar.svelte"
+import { goto } from '$app/navigation';
+export let data
+
 	const date = new Date();
 	
 	const today = {
@@ -37,6 +41,48 @@
 	}
 	
 	$: console.log(`${month}, ${today.dayNumber}, ${year}, FIRST DAY index is ${firstDayIndex}, MONTH index is ${monthIndex}, No. of days: ${numberOfDays}`)
+
+    function redirectToOutfitPage(outfit) {
+  console.log("Redirecting to outfit ID:", outfit.id);
+  goto(`/outfits/${outfit.id}`);
+}
+function handleDateClick(outfit) {
+    redirectToOutfitPage(outfit);
+  }
+
+//   function getOutfitForDate(dayIndex) {
+//     const selectedDate = new Date(year, monthIndex, (dayIndex - firstDayIndex) + 1);
+//     // Find the outfit that matches the selected date
+//     return data.outfits.find(outfit => {
+//       const outfitDate = new Date(outfit.date);
+//       return (
+//         outfitDate.getDate() === selectedDate.getDate() &&
+//         outfitDate.getMonth() === selectedDate.getMonth() &&
+//         outfitDate.getFullYear() === selectedDate.getFullYear()
+//       );
+//     });
+//   }
+
+function getOutfitForDate(dayIndex) {
+  const selectedDate = new Date(year, monthIndex, (dayIndex - firstDayIndex) + 1);
+
+  // Find the outfit that matches the selected date
+  const matchingOutfit = data.outfits.find(outfit => {
+    const outfitDate = new Date(outfit.date);
+    return (
+      outfitDate.getDate() === selectedDate.getDate() &&
+      outfitDate.getMonth() === selectedDate.getMonth() &&
+      outfitDate.getFullYear() === selectedDate.getFullYear()
+    );
+  });
+
+  return matchingOutfit || null;
+}
+  
+
+
+
+
 </script>
 
 
@@ -54,22 +100,29 @@
 		<li>Sun</li><li>Mon</li><li>Tue</li><li>Wed</li><li>Thu</li><li>Fri</li><li>Sat</li>
 	</ul>
 
-	<ul class="days">
-		{#each Array(calendarCellsQty) as _, i}
-			{#if i < firstDayIndex || i >= numberOfDays+firstDayIndex  }
-				<li>&nbsp;</li>
-			{:else}
-				<li class:active={i === today.dayNumber+(firstDayIndex-1) &&
-													monthIndex === today.month &&
-													year === today.year}>
-					{(i - firstDayIndex) + 1}
-				</li>
-			{/if}
-		{/each}
-	</ul>
+    <ul class="days">
+        {#each Array(calendarCellsQty) as _, i}
+            {#if i < firstDayIndex || i >= numberOfDays + firstDayIndex }
+                <li>&nbsp;</li>
+            {:else}
+                <li
+                    class:active={i === today.dayNumber + (firstDayIndex - 1) &&
+                                monthIndex === today.month &&
+                                year === today.year}
+                    class:has-outfits={(() => {
+                        const outfit = getOutfitForDate(i);
+                        console.log(`Date: ${month}/${(i - firstDayIndex) + 1}/${year}, Outfit:`, outfit);
+                        return outfit !== null;
+                    })()}
+                    data-dateID={`${month}_${(i - firstDayIndex) + 1}_${year}`}
+                    on:click={() => handleDateClick(getOutfitForDate(i))}
+                >
+                    {(i - firstDayIndex) + 1}
+                </li>
+            {/if}
+        {/each}
+    </ul>
 
-
-				
 <style>
 	ul {list-style-type: none;}
 
@@ -148,4 +201,9 @@
 		background: #234671;
 		color: white !important
 	}
+
+    .days li.has-outfits {
+		color: #F2480A;
+	}
+
 </style>

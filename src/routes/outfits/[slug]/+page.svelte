@@ -18,6 +18,36 @@
     const filteredShoes = data.shoes.filter(item => item.id === selectedShoes);
     const filteredAccs = data.accs.filter(item => item.id === selectedAccs);
 
+    function deleteOutfit() {
+        const confirmDelete = confirm('Are you sure you want to delete this outfit?');
+
+        if (confirmDelete) {
+            // Make a DELETE request to your backend API to delete the outfit
+            fetch(`${PUBLIC_BACKEND_BASE_URL}/outfits/${data.outfits.id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${getTokenFromLocalStorage()}`,
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect or update the UI as needed after successful deletion
+                    goto('/calendar'); // Change this to your desired destination
+                } else {
+                    // Handle error response
+                    console.error('Failed to delete outfit');
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting outfit:', error);
+            });
+        }
+    }
+
+    // onDestroy(() => {
+    //     // Clean up any resources if needed
+    // });
+    
     </script>  
 
 <style>
@@ -46,6 +76,7 @@
 <div id="outfits-container">
   <div class="border border-gray-300 p-4 m-4 text-center flex-shrink-0">
       <a class="font-bold text-2xl" href="/outfits/{data.outfits.id}">{data.outfits.date}</a>
+      <button on:click={deleteOutfit} class="mt-2 bg-red-500 text-white px-4 py-2 rounded">Delete Outfit</button>
   </div>
 
   {#if filteredTops.length > 0 || filteredBottoms.length > 0 || filteredShoes.length > 0 || filteredAccs.length > 0}
