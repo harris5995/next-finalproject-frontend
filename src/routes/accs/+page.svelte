@@ -2,7 +2,9 @@
     import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public'
     import { getTokenFromLocalStorage, getUserId } from '../../lib/auth.js';
     import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
     export let data;
+    
   
     function filterAccsByUser () {
       const userId = getUserId();

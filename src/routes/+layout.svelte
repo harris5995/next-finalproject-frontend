@@ -20,6 +20,6 @@
   <slot />
 
   <div>
-    <Header {loggedIn} />
+    <Header {LoggedIn} />
     <!-- The rest of your layout content goes here -->
   </div>

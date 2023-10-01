@@ -21,8 +21,12 @@
       <a href="/" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
         Closet
       </a>
-      <a href="/outfit" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+      <a href="/outfits" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
         Outfit
+      </a>
+
+      <a href="/calendar" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        Calendar
       </a>
 
         <button on:click={logOut} class="text-white border border-white px-4 py-2 rounded-full text-sm btn">

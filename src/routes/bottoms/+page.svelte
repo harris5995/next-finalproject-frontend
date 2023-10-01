@@ -2,6 +2,7 @@
   import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public'
   import { getTokenFromLocalStorage, getUserId } from '../../lib/auth.js';
   export let data;
+  import { onMount } from 'svelte';
 
   function filterBottomsByUser () {
       const userId = getUserId();
