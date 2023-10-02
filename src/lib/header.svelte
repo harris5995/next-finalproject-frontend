@@ -30,7 +30,7 @@
         </button>
         <!-- <Theme/> -->
       {:else}
-        <a href="/users/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        <a href="/users/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn custom-btn-height">
           Register
         </a>
         <a href="/login" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
@@ -47,5 +47,9 @@
     position: fixed;
     top: 0;
     width: 100%;
+  }
+  /* Adjust the height as needed */
+  .custom-btn-height {
+    height: 2px !important; /* Change 30px to your desired button height */
   }
 </style>
