@@ -47,6 +47,7 @@ function handleDateChange(evt) {
 export async function saveOutfit(evt) {
   const accessToken = getTokenFromLocalStorage();
 
+
   // Check if a date is selected
   if (!selectedDate) {
     alert('Please select a date before saving the outfit.');
@@ -63,6 +64,13 @@ export async function saveOutfit(evt) {
   };
 
   console.log('Outfit Data:', outfitData);
+  
+   //Check if oufit data is full
+   for (const key in outfitData) {
+      if (outfitData[key] === undefined) {
+        alert(`Please, complete your outfit.`);
+        return;
+      }}
 
   try {
     const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
@@ -86,6 +94,7 @@ export async function saveOutfit(evt) {
   } catch (error) {
     console.error('Error saving outfit:', error);
   }
+  
 }
 
 // export async function saveOutfit(evt) {

@@ -74,7 +74,7 @@
             <label class="label" for="description">
                 <span class="label-text">Description</span>
             </label>
-            <input type="input" name="description" placeholder="Additional information about your clothing item to improve searchability" class="input input-bordered w-full" required />
+            <input type="input" name="description" placeholder="Additional information" class="input input-bordered w-full" required />
             {#if 'description' in formErrors}
             <label class="label" for="description">
                 <span class="label-text-alt text-red-500">{formErrors['description'].message}</span>
