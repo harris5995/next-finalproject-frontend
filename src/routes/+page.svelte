@@ -13,11 +13,10 @@
 <style>
 
   .container {
-    display: flex;
     justify-content: center; /* Center the grid horizontally */
     align-items: center; /* Center the grid vertically */
-    height: 100vh; /* Set the container height to the full viewport height */
-    margin-left: 115px;
+    height: 80vh; /* Set the container height to the full viewport height */
+    
   }
 
   .grid {
@@ -34,7 +33,7 @@
     align-items: center;
     border: 1px solid #ccc;
     color: #e2d3d3;
-    background-color: #556B2F;
+    background-color: #8D0327;
     font-size: 28px;
     font-weight: bold;
     text-transform: uppercase;
@@ -77,11 +76,11 @@
 
 
 <div class="text-center">
-  <h1 style="text-decoration: none; font-size: 30px; font-weight: bold; color: #B7410E; text-transform: uppercase; margin: 15px 0 0 0 ; padding: 10px 20px; border-radius: 5px;">My Closet</h1>
+  <h1 style="text-decoration: none; font-size: 30px; font-weight: bold; color: #B7410E; text-transform: uppercase; margin: 15px 0 0 0 ; padding: 10px; border-radius: 10px;">My Closet</h1>
 </div>
 
 
-<div class="container">
+<div class="container flex pl-14">
   <div class="grid">
     {#each links as link, index}
       <a href={link} class="square" key={index}>

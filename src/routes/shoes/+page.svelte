@@ -21,9 +21,7 @@ console.log(shoes)
 </script>
 
 
-
-
-  <a href="/shoes/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+<a href="/shoes/new" class="px-6 py-3 rounded-full text-lg btn-primary">
     Upload New Shoes
   </a>
 

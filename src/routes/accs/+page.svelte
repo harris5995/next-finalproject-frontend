@@ -34,7 +34,7 @@ onMount(filterAccsByUser);
 
 
 
-  <a href="/accs/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+  <a href="/accs/new" class="px-6 py-3 rounded-full text-lg btn-primary">
     Upload New Accessory
   </a>
 

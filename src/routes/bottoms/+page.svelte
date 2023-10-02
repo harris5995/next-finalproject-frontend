@@ -20,7 +20,7 @@ onMount(filterBottomsByUser);
 
 </script>
 
-<a href="/bottoms/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+<a href="/bottoms/new" class="px-6 py-3 rounded-full text-lg btn-primary">
   Upload New Bottom
 </a>
 

@@ -18,26 +18,26 @@
 
     <div class="flex space-x-4 items-center">
       {#if $LoggedIn}
-      <a href="/" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+      <a href="/" class="px-6 py-3 rounded-full text-lg btn-primary">
         Closet
       </a>
-      <a href="/outfits" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+      <a href="/outfits" class="px-6 py-3 rounded-full text-lg btn-primary">
         Outfit
       </a>
 
-      <a href="/calendar" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+      <a href="/calendar" class="px-6 py-3 rounded-full text-lg btn-primary">
         Calendar
       </a>
 
-        <button on:click={logOut} class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        <button on:click={logOut} class="px-6 py-3 rounded-full text-lg btn-primary">
           Log Out
         </button>
  
       {:else}
-        <a href="/users/new" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        <a href="/users/new" class="px-6 py-3 rounded-full text-lg btn-primary">
           Register
         </a>
-        <a href="/login" class="text-white border border-white px-4 py-2 rounded-full text-sm btn">
+        <a href="/login" class="px-6 py-3 rounded-full text-lg btn-primary">
           Log In
         </a>
 

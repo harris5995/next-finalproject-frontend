@@ -1,5 +1,4 @@
 <script>
-  import Calendar from "../../lib/calendar.svelte"
   import { goto } from '$app/navigation';
   export let data
   
@@ -13,13 +12,12 @@
     
     const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let monthIndex = date.getMonth();
-    // const currentMonth = date.toLocaleString('en-US', { month: 'long' })
     $: month = monthNames[monthIndex];
     
     let year = date.getFullYear();
     
     $: firstDayIndex = new Date(year, monthIndex, 1).getDay();
-    // const currentDay = date.getDate();
+
     $: numberOfDays = new Date(year, monthIndex+1, 0).getDate();
     
     $: calendarCellsQty = numberOfDays + firstDayIndex;
@@ -49,20 +47,7 @@
   function handleDateClick(outfit) {
       redirectToOutfitPage(outfit);
     }
-  
-  //   function getOutfitForDate(dayIndex) {
-  //     const selectedDate = new Date(year, monthIndex, (dayIndex - firstDayIndex) + 1);
-  //     // Find the outfit that matches the selected date
-  //     return data.outfits.find(outfit => {
-  //       const outfitDate = new Date(outfit.date);
-  //       return (
-  //         outfitDate.getDate() === selectedDate.getDate() &&
-  //         outfitDate.getMonth() === selectedDate.getMonth() &&
-  //         outfitDate.getFullYear() === selectedDate.getFullYear()
-  //       );
-  //     });
-  //   }
-  
+    
   function getOutfitForDate(dayIndex) {
     const selectedDate = new Date(year, monthIndex, (dayIndex - firstDayIndex) + 1);
   
@@ -130,7 +115,7 @@
     .month {
       padding: 70px 25px;
       width: auto;
-      background: #07325f;
+      background: #8D0327;
       text-align: center;
     }
   
@@ -198,7 +183,7 @@
     /* Highlight the "current" day */
     .active {
       padding: 5px;
-      background: #234671;
+      background: #8D0327;
       color: white !important
     }
   
