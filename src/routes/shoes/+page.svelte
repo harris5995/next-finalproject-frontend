@@ -118,7 +118,7 @@
       <div class="border border-gray-300 p-4 text-center flex-shrink-0">
         <button class="btn" on:click={() => selectShoes(shoes.name)}>Select</button>
         <a class="font-bold text-2xl block mt-2" href="/shoes/{shoes.id}">{shoes.name}</a>
-        <img class="max-w-xs max-h-xs mx-auto mb-2" src={shoes.url} alt={shoes.url} />
+        <img class="w-32 h-32 mx-auto mb-2" src={shoes.url} alt={shoes.url} />
         <p>{shoes.description}</p>
         <p>{shoes.brand}</p>
         <p>{shoes.color}</p>

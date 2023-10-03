@@ -116,7 +116,7 @@
       <div class="border border-gray-300 p-4 text-center flex-shrink-0">
         <button class="btn" on:click={() => selectBottoms(bottoms.name)}>Select</button>
         <a class="font-bold text-2xl block mt-2" href="/bottoms/{bottoms.id}">{bottoms.name}</a>
-        <img class="max-w-xs max-h-xs mx-auto mb-2" src={bottoms.url} alt={bottoms.url} />
+        <img class="w-32 h-32 mx-auto mb-2" src={bottoms.url} alt={bottoms.url} />
         <p >{bottoms.description}</p>
         <p>{bottoms.brand}</p>
         <p>{bottoms.color}</p>

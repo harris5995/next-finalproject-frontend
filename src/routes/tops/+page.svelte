@@ -118,7 +118,7 @@
       <div class="border border-gray-300 p-4 text-center flex-shrink-0">
         <button class="btn" on:click={() => selectTop(tops.name)}>Select</button>
         <a class="font-bold text-2xl block mt-2" href="/tops/{tops.id}">{tops.name}</a>
-        <img class="max-w-xs max-h-xs mx-auto mb-2" src={tops.url} alt={tops.url} />
+        <img class="w-32 h-32 mx-auto mb-2" src={tops.url} alt={tops.url} />
         <p>{tops.description}</p>
         <p>{tops.brand}</p>
         <p>{tops.color}</p>

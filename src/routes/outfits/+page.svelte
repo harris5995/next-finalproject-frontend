@@ -133,28 +133,28 @@ export async function saveOutfit(evt) {
     {#each filteredTops as tops}
     <div class="border border-gray-300 p-4 text-center">
       <a class="font-bold text-lg" href="/tops/{tops.id}">{tops.name}</a>
-      <img class="max-w-xs max-h-xs mx-auto my-2" src={tops.url} alt={tops.url} />
+      <img class="w-32 h-32 mx-auto mb-2" src={tops.url} alt={tops.url} />
     </div>
     {/each}
   
     {#each filteredBottoms as bottoms}
     <div class="border border-gray-300 p-4 text-center">
       <a class="font-bold text-lg" href="/bottoms/{bottoms.id}">{bottoms.name}</a>
-      <img class="max-w-xs max-h-xs mx-auto my-2" src={bottoms.url} alt={bottoms.url} />
+      <img class="w-32 h-32 mx-auto mb-2" src={bottoms.url} alt={bottoms.url} />
     </div>
     {/each}
   
     {#each filteredShoes as shoes}
     <div class="border border-gray-300 p-4 text-center">
       <a class="font-bold text-lg" href="/shoes/{shoes.id}">{shoes.name}</a>
-      <img class="max-w-xs max-h-xs mx-auto my-2" src={shoes.url} alt={shoes.url} />
+      <img class="w-32 h-32 mx-auto mb-2" src={shoes.url} alt={shoes.url} />
     </div>
     {/each}
   
     {#each filteredAccs as accs}
     <div class="border border-gray-300 p-4 text-center">
       <a class="font-bold text-lg" href="/accs/{accs.id}">{accs.name}</a>
-      <img class="max-w-xs max-h-xs mx-auto my-2" src={accs.url} alt={accs.url} />
+      <img class="w-32 h-32 mx-auto mb-2" src={accs.url} alt={accs.url} />
     </div>
     {/each}
   </div>
