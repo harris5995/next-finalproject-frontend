@@ -44,7 +44,7 @@
   
   <h1 class="text-center text-xl">Create Your Account</h1>
   <div class="text-center">
-      <a class="link-hover italic text-xs" href="/login">Already have an account? Click here to login instead.</a>
+      <a class="link-hover italic text-xs" href="/login">Already have an account? Click here to login.</a>
   </div>
   <div class="flex justify-center items-center mt-8">
       <form on:submit={createUser} class="w-1/3">

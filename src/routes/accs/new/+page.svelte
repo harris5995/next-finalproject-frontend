@@ -51,6 +51,8 @@
 
 </script>
 
+
+
 <h1 class="text-center text-3xl font-bold">Upload Your Accessory Here</h1>
 
 <div class="flex justify-center items-center mt-8">

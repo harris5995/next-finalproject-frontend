@@ -113,7 +113,7 @@
   <!-- Right side: bottoms list -->
   <div id="bottoms-list" class="ml-10 grid grid-cols-3 gap-4 w-3/4 mt-4">
     {#each data.bottoms as bottoms}
-      <div class="border border-gray-300 p-4 text-center flex-shrink-0">
+      <div class="border border-gray-300 p-4 text-center flex-shrink-0" >
         <button class="btn" on:click={() => selectBottoms(bottoms.name)}>Select</button>
         <a class="font-bold text-2xl block mt-2" href="/bottoms/{bottoms.id}">{bottoms.name}</a>
         <img class="w-32 h-32 mx-auto mb-2" src={bottoms.url} alt={bottoms.url} />
