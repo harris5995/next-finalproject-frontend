@@ -46,8 +46,8 @@
     }
 
   :root {
-    --square-width: 300px;
-    --square-height: 300px;
+    --square-width: 250px;
+    --square-height: 250px;
   }
 
   .text-center h1 {
@@ -76,11 +76,11 @@
 
 
 <div class="text-center">
-  <h1 style="text-decoration: none; font-size: 30px; font-weight: bold; color: #B7410E; text-transform: uppercase; margin: 15px 0 0 0 ; padding: 10px; border-radius: 10px;">My Closet</h1>
+  <h1 style="text-decoration: none; font-size: 28px; font-weight: bold; color: #DC944C; text-transform: uppercase; margin: 15px 0 0 0 ; padding: 10px; padding-left: 20px; border-radius: 10px;">My Closet</h1>
 </div>
 
 
-<div class="container flex pl-14">
+<div class="container flex justify-center pl-40">
   <div class="grid">
     {#each links as link, index}
       <a href={link} class="square" key={index}>

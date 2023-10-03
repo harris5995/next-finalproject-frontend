@@ -85,28 +85,16 @@
         </div>
 
         <div class="form-control w-full">
-            <label class="label" for="description">
-                <span class="label-text">Description</span>
+            <label class="label" for="brand">
+                <span class="label-text">Brand</span>
             </label>
-            <input type="input" name="description" placeholder="Additional information" class="input input-bordered w-full" required />
-            {#if 'description' in formErrors}
-            <label class="label" for="description">
-                <span class="label-text-alt text-red-500">{formErrors['description'].message}</span>
+            <input type="input" name="brand" placeholder="Uniqlo" class="input input-bordered w-full" required />
+            {#if 'brand' in formErrors}
+            <label class="label" for="brand">
+                <span class="label-text-alt text-red-500">{formErrors['brand'].message}</span>
             </label>
             {/if}
         </div>
-
-        <!-- <div class="form-control w-full">
-            <label class="label" for="color">
-                <span class="label-text">Primary Color</span>
-            </label>
-            <input type="input" name="color" placeholder="Red/Blue/Green/Yellow" class="input input-bordered w-full" required />
-            {#if 'color' in formErrors}
-            <label class="label" for="color">
-                <span class="label-text-alt text-red-500">{formErrors['color'].message}</span>
-            </label>
-            {/if}
-        </div> -->
 
         <div class="form-control w-full">
             <label class="label" for="color">
@@ -138,27 +126,38 @@
 
 
         <div class="form-control w-full">
-            <label class="label" for="brand">
-                <span class="label-text">Brand</span>
+            <label class="label" for="material">
+                <span class="label-text">Material</span>
             </label>
-            <input type="input" name="brand" placeholder="Uniqlo" class="input input-bordered w-full" required />
-            {#if 'brand' in formErrors}
-            <label class="label" for="brand">
-                <span class="label-text-alt text-red-500">{formErrors['brand'].message}</span>
-            </label>
-            {/if}
-        </div>
-
-
-
-        <div class="form-control w-full">
-            <label class="label" for="size">
-                <span class="label-text">Size</span>
-            </label>
-            <input type="input" name="size" placeholder="S/M/L/XL etc" class="input input-bordered w-full" required />
-            {#if 'color' in formErrors}
-            <label class="label" for="size">
-                <span class="label-text-alt text-red-500">{formErrors['size'].message}</span>
+            <select name="material" class="input input-bordered w-full" required>
+                <option value="" disabled selected>Select a material</option>
+                <option value="Cotton">Cotton</option>
+                <option value="Denim">Denim</option>
+                <option value="Flannel">Flannel</option>
+                <option value="Fleece">Fleece</option>
+                <option value="Gingham">Gingham</option>
+                <option value="Jersey">Jersey</option>
+                <option value="Lace">Lace</option>
+                <option value="Leather">Leather</option>
+                <option value="Linen">Linen</option>
+                <option value="Metal">Metal/Alloys</option>
+                <option value="Polyester">Polyester</option>
+                <option value="Precious Stones">Precious Stones</option>
+                <option value="Rayon">Rayon</option>
+                <option value="Rubber">Rubber</option>
+                <option value="Satin">Satin</option>
+                <option value="Silk">Silk</option>
+                <option value="Spandex">Spandex</option>
+                <option value="Suede">Suede</option>
+                <option value="Synthetic Fiber">Synthetic Fiber</option>
+                <option value="Tweed">Tweed</option>
+                <option value="Twill">Twill</option>
+                <option value="Wool">Wool</option>
+                <option value="Other Materials">Other Materials</option>
+            </select>
+            {#if 'material' in formErrors}
+            <label class="label" for="material">
+                <span class="label-text-alt text-red-500">{formErrors['material'].message}</span>
             </label>
             {/if}
         </div>
@@ -176,38 +175,29 @@
         </div>
 
         <div class="form-control w-full">
-            <label class="label" for="material">
-                <span class="label-text">Material</span>
+            <label class="label" for="size">
+                <span class="label-text">Size</span>
             </label>
-            <select name="material" class="input input-bordered w-full" required>
-                <option value="" disabled selected>Select a material</option>
-                <option value="Cotton">Cotton</option>
-                <option value="Denim">Denim</option>
-                <option value="Flannel">Flannel</option>
-                <option value="Fleece">Fleece</option>
-                <option value="Gingham">Gingham</option>
-                <option value="Jersey">Jersey</option>
-                <option value="Lace">Lace</option>
-                <option value="Leather">Leather</option>
-                <option value="Linen">Linen</option>
-                <option value="Polyester">Polyester</option>
-                <option value="Rayon">Rayon</option>
-                <option value="Satin">Satin</option>
-                <option value="Silk">Silk</option>
-                <option value="Spandex">Spandex</option>
-                <option value="Suede">Suede</option>
-                <option value="Synthetic Fiber">Synthetic Fiber</option>
-                <option value="Tweed">Tweed</option>
-                <option value="Twill">Twill</option>
-                <option value="Wool">Wool</option>
-                <option value="Other Materials">Other Materials</option>
-            </select>
-            {#if 'material' in formErrors}
-            <label class="label" for="material">
-                <span class="label-text-alt text-red-500">{formErrors['material'].message}</span>
+            <input type="input" name="size" placeholder="S/M/L/XL etc" class="input input-bordered w-full" required />
+            {#if 'color' in formErrors}
+            <label class="label" for="size">
+                <span class="label-text-alt text-red-500">{formErrors['size'].message}</span>
             </label>
             {/if}
         </div>
+
+        <div class="form-control w-full">
+            <label class="label" for="description">
+                <span class="label-text">Description</span>
+            </label>
+            <input type="input" name="description" placeholder="Additional Information" class="input input-bordered w-full" required />
+            {#if 'description' in formErrors}
+            <label class="label" for="description">
+                <span class="label-text-alt text-red-500">{formErrors['description'].message}</span>
+            </label>
+            {/if}
+        </div>
+
         
         <div class="form-control w-full mt-8">
             <button class="btn btn-md bg-white text-black">

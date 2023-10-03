@@ -88,35 +88,37 @@
     </div>
   
     {#if filteredTops.length > 0 || filteredBottoms.length > 0 || filteredShoes.length > 0 || filteredAccs.length > 0}
-    <div id="outfits-list-container">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {#each filteredTops as tops}
-      <div class="outfit-item">
+      <div class="border border-gray-300 p-4 text-center">
         <a class="font-bold text-lg" href="/tops/{tops.id}">{tops.name}</a>
         <img class="max-w-xs max-h-xs mx-auto my-2" src={tops.url} alt={tops.url} />
       </div>
       {/each}
-  
+    
       {#each filteredBottoms as bottoms}
-      <div class="outfit-item">
+      <div class="border border-gray-300 p-4 text-center">
         <a class="font-bold text-lg" href="/bottoms/{bottoms.id}">{bottoms.name}</a>
         <img class="max-w-xs max-h-xs mx-auto my-2" src={bottoms.url} alt={bottoms.url} />
       </div>
       {/each}
-  
+    
       {#each filteredShoes as shoes}
-      <div class="outfit-item">
+      <div class="border border-gray-300 p-4 text-center">
         <a class="font-bold text-lg" href="/shoes/{shoes.id}">{shoes.name}</a>
         <img class="max-w-xs max-h-xs mx-auto my-2" src={shoes.url} alt={shoes.url} />
       </div>
       {/each}
-  
+    
       {#each filteredAccs as accs}
-      <div class="outfit-item">
+      <div class="border border-gray-300 p-4 text-center">
         <a class="font-bold text-lg" href="/accs/{accs.id}">{accs.name}</a>
         <img class="max-w-xs max-h-xs mx-auto my-2" src={accs.url} alt={accs.url} />
       </div>
       {/each}
     </div>
+  
     {:else}
     <p>No clothing item selected.</p>
     {/if}

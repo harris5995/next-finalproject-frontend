@@ -3,6 +3,9 @@ import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
 import { getTokenFromLocalStorage, getUserId } from '../../lib/auth.js';
 export let data;
 
+let showSuccessAlert = false;
+
+
 const selectedTops = sessionStorage.getItem("tops");
 const selectedBottoms = sessionStorage.getItem("bottoms");
 const selectedShoes = sessionStorage.getItem("shoes");
@@ -68,7 +71,7 @@ export async function saveOutfit(evt) {
    //Check if oufit data is full
    for (const key in outfitData) {
       if (outfitData[key] === undefined) {
-        alert(`Please, complete your outfit.`);
+        alert(`Please complete your outfit. You need to select 1 top, 1 bottom, 1 pair of footwear and 1 accessory.`);
         return;
       }}
 
@@ -84,7 +87,10 @@ export async function saveOutfit(evt) {
     });
 
     if (resp.status === 200) {
-      // Handle success if needed
+      showSuccessAlert = true; 
+        setTimeout(() => {
+          showSuccessAlert = false; 
+        }, 3000);
     } else {
       const res = await resp.json();
       if (res.error) {
@@ -97,44 +103,13 @@ export async function saveOutfit(evt) {
   
 }
 
-// export async function saveOutfit(evt) {
-//   const accessToken = getTokenFromLocalStorage();
-//   const outfitData = {
-//     user_id: getUserId(), // Ensure this function is correct
-//     tops: getTopsID,
-//     bottoms: getBottomsID,
-//     shoes: getShoesID,
-//     accs: getAccsID,
-//     date: selectedDate,
-//   };
-
-//   console.log('Outfit Data:', outfitData); // Log the data
-
-//   const resp = await fetch(PUBLIC_BACKEND_BASE_URL + '/outfits', {
-//     method: 'POST',
-//     mode: 'cors',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Authorization: `Bearer ${accessToken}`,
-//     },
-//     body: JSON.stringify(outfitData),
-//   });
-
-//       if (resp.status == 200) {
-      
-//       } else {
-//       const res = await resp.json();
-//       if (res.error)
-//       console.log(res.error)
-//       formErrors = res.error;
-//     }
-// }
-
   </script>
   
-  <h1 class="text-2xl font-bold mb-4">Select outfit for the date</h1>
+  <h1 class="text-2xl font-bold mb-4 text-center">Selected Outfit</h1>
 
-  <div class="flex items-center justify-start space-x-4"> <!-- Adjusted the justify-between class -->
+  <h2 class="text-sm font-bold mb-4 text-center">Please choose a date</h2>
+
+  <div class="flex items-center justify-center space-x-4 mb-10"> <!-- Adjusted the justify-between class -->
 
     <div class="relative max-w-sm">
       <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
@@ -145,7 +120,7 @@ export async function saveOutfit(evt) {
       <input datepicker type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date" id="datePicker" bind:value={selectedDate} on:change={handleDateChange}>
     </div>
     
-    <button class="bg-blue-500 btn hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" on:click={saveOutfit}>Save Outfit</button>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" on:click={saveOutfit}>Save Outfit</button>
     <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" on:click={clearSessionStorage}>Clear Selection</button>
   </div>
   
@@ -188,3 +163,22 @@ export async function saveOutfit(evt) {
   <p>No clothing item selected.</p>
   {/if}
 
+   <!-- Success alert -->
+   {#if showSuccessAlert}
+   <div class="alert alert-success">
+     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+     </svg>
+     <span>Your outfit has been saved successfully!</span>
+   </div>
+ {/if}
+
+ <style>
+  .alert-success {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+</style>
