@@ -6,58 +6,65 @@
 </script> 
 
 
-<nav class="bg-black text-white p-4 flex justify-between items-center"> 
-
-<a href="/" class="text-4xl bg-black text-white p-4 flex justify-between items-center">
-  Style Vault
-</a> 
-
-<div class="flex-1"></div>
-
-<div class="flex items-center space-x-4">
-
+<nav class="bg-primary text-white p-4 flex justify-between items-center">
+  <a href="/" class="text-4xl font-semibold">
+    Style Vault
+  </a>
+  <div class="flex-1"></div>
+  <div class="flex items-center space-x-4">
     <div class="flex space-x-4 items-center">
       {#if $LoggedIn}
-      <a href="/" class="px-6 py-3 rounded-full text-lg btn-primary">
-        Closet
-      </a>
-      <a href="/outfits" class="px-6 py-3 rounded-full text-lg btn-primary">
-        Outfit
-      </a>
-
-      <a href="/calendar" class="px-6 py-3 rounded-full text-lg btn-primary">
-        Calendar
-      </a>
-
-        <button on:click={logOut} class="px-6 py-3 rounded-full text-lg btn-primary">
-          Log Out
-        </button>
- 
+      <a href="/" class="nav-link">Closet</a>
+      <a href="/outfits" class="nav-link">Outfit</a>
+      <a href="/calendar" class="nav-link">Calendar</a>
+      <button on:click={logOut} class="nav-button">Log Out</button>
       {:else}
-        <a href="/users/new" class="px-6 py-3 rounded-full text-lg btn-primary">
-          Register
-        </a>
-        <a href="/login" class="px-6 py-3 rounded-full text-lg btn-primary">
-          Log In
-        </a>
-
+      <a href="/users/new" class="nav-link">Register</a>
+      <a href="/login" class="nav-link">Log In</a>
       {/if}
-      <!-- {#if $LoggedIn}
-      <button class="btn mr-6 btn-primary hover:btn-accent" on:click={logOut}>Log Out</button>
-  {:else}
-      <a href="/login" class="btn mr-6 btn-primary hover:btn-accent">Log In</a>
-  {/if} -->
     </div>
-
-    
-  
-   
+  </div>
 </nav>
 
 <style>
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-</style>
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #8D0327(0, 0, 0, 0.45); 
+  }
+  
+  .nav-link {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 20px;
+  }
+  
+  .nav-link:hover {
+    background-color: #B7410E;
+    opacity: 0.8;
+    color: #000;
+  }
+  
+  .nav-button {
+    padding: 10px 10px;
+    font-size: 17px;
+    background-color: #fff;
+    color: #000;
+    opacity: 0.8;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .nav-button:hover {
+    background-color: #B7410E;
+    opacity: 0.5;
+    color: #000;
+
+  }
+  </style>

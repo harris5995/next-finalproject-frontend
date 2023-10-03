@@ -10,7 +10,7 @@
 <style>
   main {
     padding-top: 8rem; /* Increase this value as needed */
-    font-style: Arial;
+    font-style: Arial ;
     font-size: 10;
   }
 </style>

@@ -34,15 +34,23 @@
     border: 1px solid #ccc;
     color: #e2d3d3;
     background-color: #8D0327;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 23px;
+    font-weight: Bold;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 5px;
     text-transform: uppercase;
+    opacity: 0.65;
+    border-radius: 35px;
     transition: background-color 0.3s, transform 0.2s;
   }
 
   .square:hover {
+    
+      transform: scale(1.1);
+      opacity: 0.85; 
       background-color: #B7410E;
       color: #b9e7c8;
+      
     }
 
   :root {
