@@ -62,7 +62,7 @@
   <!-- Left side: Search bar -->
 
 
-  <div id="search-bar" class="p-4 rounded-md justify-center w-1/6 flex flex-col justify-between items-center" style="background-color:#000000; padding: 10px; border: 1px solid #ccc;">
+  <div id="search-bar" class="p-4 rounded-md justify-center w-1/6" style="background-color:#000000; padding: 10px; border: 1px solid #ccc;">
     
     <div>
 

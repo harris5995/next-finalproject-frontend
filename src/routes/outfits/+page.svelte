@@ -106,7 +106,7 @@ export async function saveOutfit(evt) {
   
   <h1 class="text-2xl font-bold mb-4 text-center">Selected Outfit</h1>
 
-  <h2 class="text-sm font-bold mb-4 text-center">Please choose a date</h2>
+  <h2 class="text-sm font-bold mb-4 text-center">Please choose a date and then save your outfit.</h2>
 
   <div class="flex items-center justify-center space-x-4 mb-10"> <!-- Adjusted the justify-between class -->
 
