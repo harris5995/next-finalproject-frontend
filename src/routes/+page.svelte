@@ -2,12 +2,20 @@
   import BackgroundCircles from './background.svelte';
 
   let texts = ["tops", "bottoms", "shoes", "accessories"];
+
   let links = [
-    "http://127.0.0.1:5173/tops",
-    "http://127.0.0.1:5173/bottoms",
-    "http://127.0.0.1:5173/shoes",
-    "http://127.0.0.1:5173/accs"
+  "https://next-finalproject-frontend.pages.dev/tops",
+  "https://next-finalproject-frontend.pages.dev/bottoms",
+  "https://next-finalproject-frontend.pages.dev/shoes",
+  "https://next-finalproject-frontend.pages.dev/accs"
   ];
+
+  // let links = [
+  //   "http://127.0.0.1:5173/tops",
+  //   "http://127.0.0.1:5173/bottoms",
+  //   "http://127.0.0.1:5173/shoes",
+  //   "http://127.0.0.1:5173/accs"
+  // ];
 </script>
 
 <style>
