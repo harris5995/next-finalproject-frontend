@@ -7,16 +7,20 @@
 
     export let data;
 
-
     const selectedTops = data.outfits.tops_id
     const selectedBottoms = data.outfits.bottoms_id
-    const selectedShoes = data.outfits.accs_id
+    const selectedShoes = data.outfits.shoes_id
     const selectedAccs = data.outfits.accs_id
+
+  
     
     const filteredTops = data.tops.filter(item => item.id === selectedTops);
     const filteredBottoms = data.bottoms.filter(item => item.id === selectedBottoms);
     const filteredShoes = data.shoes.filter(item => item.id === selectedShoes);
     const filteredAccs = data.accs.filter(item => item.id === selectedAccs);
+
+    console.log("Selected Shoes ID:", selectedShoes);
+    console.log("Filtered Shoes:", filteredShoes);
 
     function deleteOutfit() {
         const confirmDelete = confirm('Are you sure you want to delete this outfit?');

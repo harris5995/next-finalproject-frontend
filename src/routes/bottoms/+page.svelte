@@ -33,7 +33,6 @@
   onMount(filterBottomsByUser);
   
   export function selectBottoms(bottoms) {
-    sessionStorage.clear();
     sessionStorage.setItem('bottoms', bottoms);
     console.log(bottoms);
 

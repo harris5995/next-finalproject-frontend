@@ -40,9 +40,9 @@ function clearSessionStorage() {
 
 
 
-let selectedDate = ""; // Initialize the selectedDate variable
+let selectedDate = ""; 
 
-// Function to handle date selection
+
 function handleDateChange(evt) {
   selectedDate = evt.target.value;
 }
@@ -50,11 +50,9 @@ function handleDateChange(evt) {
 export async function saveOutfit(evt) {
   const accessToken = getTokenFromLocalStorage();
 
-
-  // Check if a date is selected
   if (!selectedDate) {
     alert('Please select a date before saving the outfit.');
-    return; // Exit the function if the date is not selected
+    return; 
   }
 
   const outfitData = {
@@ -66,9 +64,10 @@ export async function saveOutfit(evt) {
     date: selectedDate,
   };
 
+  console.log('Shoes ID:', getShoesID)
+
   console.log('Outfit Data:', outfitData);
 
-   //Check if oufit data is full
    for (const key in outfitData) {
       if (outfitData[key] === undefined) {
         alert(`Please complete your outfit. You need to select 1 top, 1 bottom, 1 pair of footwear and 1 accessory.`);
@@ -132,28 +131,28 @@ export async function saveOutfit(evt) {
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
     {#each filteredTops as tops}
     <div class="border border-gray-300 p-4 text-center">
-      <a class="font-bold text-lg" href="/tops/{tops.id}">{tops.name}</a>
+      <a class="font-bold text-lg" href="/tops/">{tops.name}</a>
       <img class="max-w-xs max-h-xs mx-auto my-2" src={tops.url} alt={tops.url} />
     </div>
     {/each}
   
     {#each filteredBottoms as bottoms}
     <div class="border border-gray-300 p-4 text-center">
-      <a class="font-bold text-lg" href="/bottoms/{bottoms.id}">{bottoms.name}</a>
+      <a class="font-bold text-lg" href="/bottoms/">{bottoms.name}</a>
       <img class="max-w-xs max-h-xs mx-auto my-2" src={bottoms.url} alt={bottoms.url} />
     </div>
     {/each}
   
     {#each filteredShoes as shoes}
     <div class="border border-gray-300 p-4 text-center">
-      <a class="font-bold text-lg" href="/shoes/{shoes.id}">{shoes.name}</a>
+      <a class="font-bold text-lg" href="/shoes/">{shoes.name}</a>
       <img class="max-w-xs max-h-xs mx-auto my-2" src={shoes.url} alt={shoes.url} />
     </div>
     {/each}
   
     {#each filteredAccs as accs}
     <div class="border border-gray-300 p-4 text-center">
-      <a class="font-bold text-lg" href="/accs/{accs.id}">{accs.name}</a>
+      <a class="font-bold text-lg" href="/accs/">{accs.name}</a>
       <img class="max-w-xs max-h-xs mx-auto my-2" src={accs.url} alt={accs.url} />
     </div>
     {/each}

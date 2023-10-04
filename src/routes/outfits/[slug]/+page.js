@@ -61,11 +61,6 @@ export async function load({ fetch, params }) {
     }
 
     if (accessoriesResp.status === 200) {
-      // const accsData = await accessoriesResp.json();
-      // data.accs = accsData.map((accs) => ({
-      //   url: accs.url,
-      //   name: accs.name,
-      // }));
       data.accs = await accessoriesResp.json();
     }
 

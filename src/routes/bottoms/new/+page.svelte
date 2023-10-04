@@ -10,7 +10,7 @@
     import { uploadMedia } from '../../../lib/s3-uploader.js'
 
     function postSignUp() {
-        goto('/');
+        goto('/bottoms');
     } 
 
     async function uploadImages(evt) {

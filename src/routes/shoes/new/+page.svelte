@@ -10,7 +10,7 @@
     import { uploadMedia } from '../../../lib/s3-uploader.js'
 
     function postSignUp() {
-        goto('/');
+        goto('/shoes');
     } 
 
     async function uploadImages(evt) {
@@ -133,7 +133,7 @@
             </label>
             <select name="material" class="input input-bordered w-full" required>
                 <option value="" disabled selected>Select a material</option>
-                <option value="Canvas">Cotton</option>
+                <option value="Canvas">Canvas</option>
                 <option value="Cotton">Cotton</option>
                 <option value="Denim">Denim</option>
                 <option value="Flannel">Flannel</option>

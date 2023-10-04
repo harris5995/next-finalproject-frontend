@@ -8,7 +8,7 @@
 
 <nav class="bg-black text-white p-4 flex justify-between items-center"> 
 
-<a href="/" class="text-4xl bg-black text-white p-4 flex justify-between items-center">
+<a href="/" id="home" class="text-4xl bg-black text-white p-4 flex justify-between items-center">
   Style Vault
 </a> 
 
@@ -59,5 +59,24 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+#home {
+        animation: color-change 7s infinite;
+      }
+      @keyframes color-change {
+      0% { color: #b59687; }
+      50% { color: #bb8169; }
+      50% { color: #93573d; }
+      50% { color: #B7410E; }
+      100% { color: rgb(189, 147, 113); }
+    }
+    @keyframes hover-color {
+  0% { color: inherit; }
+  100% { color: #556B2F; }
+}
+#home:hover {
+  animation: none; 
+  color: #556B2F;
 }
 </style>

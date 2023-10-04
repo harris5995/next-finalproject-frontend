@@ -33,7 +33,6 @@
   onMount(filterShoesByUser);
   
   export function selectShoes(shoes) {
-    sessionStorage.clear();
     sessionStorage.setItem('shoes', shoes);
     console.log(shoes);
 

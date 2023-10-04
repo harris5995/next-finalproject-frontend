@@ -33,7 +33,7 @@
   onMount(filterTopsByUser);
   
   export function selectTop(tops) {
-    sessionStorage.clear();
+
     sessionStorage.setItem('tops', tops);
     console.log(tops);
 

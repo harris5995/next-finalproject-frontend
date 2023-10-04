@@ -33,7 +33,6 @@
   onMount(filterAccsByUser);
   
   export function selectAccs(accs) {
-    sessionStorage.clear();
     sessionStorage.setItem('accs', accs);
     console.log(accs);
 
